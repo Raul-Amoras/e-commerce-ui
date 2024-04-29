@@ -49,11 +49,53 @@
 
         & span {
             font-size: 20px;
+            cursor: pointer;
         }
         & .borderLeft{
             height: 37px;
             border-left: black 1px solid;
         }
+    }
+    .filterButton {
+        padding: 8px 16px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        display: block; /* ou inline-block dependendo do layout desejado */
+        margin-top: 10px;
+    }
+
+    /* Estilo para o contêiner do dropdown */
+    .filterDropdown {
+        position: absolute;
+        top: 47%; /* Posiciona logo abaixo do botão Filter */
+        left: 160px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        width: 200px; /* ou qualquer outra largura adequada */
+        z-index: 1000; /* Garante que o dropdown fique acima de outros elementos */
+        padding: 10px;
+        display: none; /* Escondido por padrão */
+    }
+
+    /* Exibição do dropdown quando visível */
+    .filterVisible {
+        display: block;
+    }
+
+    /* Estilo para cada item de categoria dentro do dropdown */
+    .categoryItem {
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    /* Estilo para labels dentro do dropdown */
+    .categoryLabel {
+        display: block;
+        margin: 5px 0;
+        font-size: 14px; /* Ajuste conforme necessário para legibilidade */
     }
 
     & .input{

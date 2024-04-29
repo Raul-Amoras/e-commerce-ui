@@ -4,13 +4,37 @@ import {Product} from "../../components/product/Product.tsx";
 import React, {useEffect, useState} from "react";
 import {IPagination} from "../../interfaces/IPagination.ts";
 import Pagination from "@mui/material/Pagination";
+import {Api} from "../../service/Api.ts";
 
+interface Category {
+    id: string;
+    name: string;
+    active: boolean;
+    url: string;
+}
 export function Shop(){
     const [pagination, setPagination] = useState<IPagination>({ total: 0, page: 0, limit: 16, totalPages: 0 });
     const [limitInput, setLimitInput] = useState(pagination.limit.toString());
     const [sortOrder, setSortOrder] = useState("");
+    const [selectedCategories, setSelectedCategories] = useState([]);
+    const [filterVisible, setFilterVisible] = useState(false);
     const startIndex = (pagination.page - 1) * pagination.limit + 1;
     const endIndex = Math.min(startIndex + pagination.limit - 1, pagination.total);
+    const [categories, setCategories] = useState<Category[]>([]);
+
+
+    useEffect(() => {
+        Api()
+            .get('http://localhost:3333/category')
+            .then(response => {
+                setCategories(response.data.filter((cat: Category) => cat.active));
+            })
+            .catch(err => {
+                console.error("Failed to fetch products:", err);
+            });
+    }, []);
+
+    console.log(selectedCategories[0])
 
     const handlePageChange = (event: React.ChangeEvent<unknown>, newPage: number): void => {
         setPagination(prev => ({ ...prev, page: newPage }));
@@ -29,6 +53,22 @@ export function Shop(){
         setSortOrder(selectedSortOrder);
     };
 
+    const toggleFilterVisibility = () => {
+        setFilterVisible(!filterVisible);
+    };
+
+    const handleCategoryChange = (id) => {
+        setSelectedCategories(prev => {
+            if (prev.includes(id)) {
+                return prev.filter(catId => catId !== id);
+            } else {
+                return [...prev, id];
+            }
+        });
+    };
+
+
+
     return (
         <>
             <div className={styles.subHeader}>
@@ -42,7 +82,22 @@ export function Shop(){
             <div className={styles.filter}>
                 <div className={styles.page}>
                     <Icon fontSize={30} icon={'system-uicons:filtering'} />
-                    <span>filter</span>
+                    <span onClick={toggleFilterVisibility} className={styles.filterButton}>filter</span>
+                    {filterVisible && (
+                        <div  className={`${styles.filterDropdown} ${filterVisible ? styles.filterVisible : ''}`}>
+                            {categories.map(category => (
+                                <label key={category.id} className={styles.categoryLabel}>
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedCategories.includes(category.id)}
+                                        onChange={() => handleCategoryChange(category.id)}
+                                        className={styles.categoryItem}
+                                    />
+                                    {category.name}
+                                </label>
+                            ))}
+                        </div>
+                    )}
                     <Icon fontSize={30} icon={'ci:grid-big-round'} />
                     <Icon fontSize={30} icon={'bi:view-list'} />
                     <span className={styles.borderLeft}></span>
@@ -66,7 +121,7 @@ export function Shop(){
                     </label>
                 </div>
             </div>
-            <Product setPagination={setPagination} params={{sortOrder}} />
+            <Product setPagination={setPagination} params={{sortOrder, id: selectedCategories[0]}} />
             <div className={styles.products}>
                 <Pagination
                     count={pagination.totalPages}

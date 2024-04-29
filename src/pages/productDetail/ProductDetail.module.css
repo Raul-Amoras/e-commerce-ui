@@ -5,7 +5,10 @@
     height: 100px;
     padding-left: 100px;
     background-color: var(--background-filter);
-
+    & a {
+        font-weight: 500;
+        color: var(--gray-200);
+    }
     & span {
         height: 37px;
         border-left: var(--gray-200) 3px solid;
