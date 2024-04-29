@@ -1,0 +1,38 @@
+.bannerFreight {
+    height: 270px;
+    background-color: var(--background-banner);
+}
+
+article {
+    display: flex;
+}
+
+.banner {
+    height: 100%;
+    & nav {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.textOne {
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.textTwo {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--gray-500);
+}
+
+.icons {
+    margin: auto;
+    & img {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+    }
+    color: #00B37E;
+}
