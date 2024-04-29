@@ -1,0 +1,146 @@
+footer {
+    height: 505px;
+
+}
+
+.footerStart {
+    background-color: var(--light-gray-1);
+}
+
+.footerSocial {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-left: 40px;
+}
+
+.logoFooter {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    color: var(--text-color);
+}
+
+.socialMedia > a{
+    margin-left: 20px;
+}
+
+a.link{
+    color: var(--gray-900);
+    font-weight: 500;
+}
+
+.footerCenter {
+    margin: 40px 100px;
+
+    & article {
+        & .address {
+            margin-right: 136px;
+        }
+        & .help {
+            margin-left: 144px;
+            margin-right: 72px;
+        }
+    }
+
+
+    & article > nav > h5 {
+        margin-bottom: 50px;
+        color: var(--gray-200);
+        font-weight: 500;
+    }
+
+    & article > address > h5 {
+        margin-bottom: 50px;
+        color: var(--gray-200);
+        font-weight: 500;
+    }
+
+    & .footerEnd {
+        & p {
+            color: var(--gray-900);
+        }
+    }
+
+}
+
+.footerCenter > article {
+    display: flex;
+    /*padding: 40px 111px;*/
+}
+
+.footerCenter > article > nav {
+    margin-right: 30px;
+}
+
+.footerCenter > article > nav > ul {
+    padding-right: 55px;
+
+    margin-top: 20px;
+}
+
+.footerCenter > article > address > form > input {
+    font-size: 14px;
+    font-weight: 400;
+
+    width: 204px;
+    height: 20px;
+
+    border: transparent;
+    border-bottom: var(--gray-900) solid 1px;
+
+}
+
+.footerCenter > article > address > form > button {
+    font-size: 14px;
+    font-weight: 500;
+
+    height: 20px;
+
+    margin-left: 11px;
+
+    border: none;
+    border-bottom: var(--gray-900) solid 1px;
+
+    color: var(--gray-900);
+    background-color: transparent;
+}
+
+.company {
+    & li {
+        margin-bottom: 46px;
+    }
+}
+
+p.paragraf {
+    align-items: center;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    margin-top: 5px;
+
+    color: var(--second-text-color);
+}
+
+.footerEnd{
+    border-top: var(--gray-100) solid 1px;
+    background-color: var(--white);
+    padding-top: 25px;
+    justify-content: left;
+}
+
+.footerEnd > article {
+    padding: 25px 0px;
+}
+
+.footerEnd > article > p {
+    font-size: 14px;
+    font-weight: 700;
+
+    margin-left: 111px;
+    margin-bottom: 0;
+
+    color: var(--gray-900);
+}

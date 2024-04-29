@@ -1,0 +1,139 @@
+.post {
+    background-color: var(--gray-800);
+    border-radius: 8px;
+
+    padding: 2.5rem;
+
+    & header {
+        display: flex;
+        justify-content: space-between;
+        
+        & .autor {
+            display: flex;
+    
+            & .avatar {
+                box-sizing: initial; 
+                width: 3rem;
+                height: 3rem;
+                border-radius: 8px; 
+                border: 4px solid var(--gray-800);
+                outline: 2px solid var(--green-500);
+            }
+
+            & .autorInfo {
+                display: flex;
+                flex-direction: column;
+
+                margin-left: 1rem;
+
+                line-height: 1.6;
+
+                & span {
+                    font-size: 0.875rem;
+                    color: var(--gray-400);
+                }
+
+            }
+
+        }
+
+        & time {
+            display: flex;
+            align-items: center;
+
+            font-size: 0.875rem;
+            color: var(--gray-400);
+
+            padding-right: 2.5rem;
+        }
+    }
+
+    .content {
+        margin-top: 1.5rem;
+        line-height: 1.6;
+        color: var(--gray-300);
+
+        & p {
+            margin-top: 1rem;
+
+            & a {
+                text-decoration: none;
+                font-weight: bold;
+
+                color: var(--green-500);
+                
+            }
+
+            & a:hover {
+                color: var(--green-300);
+            }
+        }
+
+        & .hastege a{
+            margin-right: 0.25rem;
+        }
+    }
+
+    & .commentList {
+        margin-top: 2rem;
+    }
+
+    
+}
+
+.post + .post {
+    margin-top: 2rem;
+}
+
+.commentForm {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--gray-600);
+
+    & strong {
+        line-height: 1.6;
+        color: var(--gray-100);
+    }
+
+    & textarea {
+        width: 100%;
+        background-color: var(--gray-900);
+        border: 0;
+        resize: none;
+        height: 6rem;
+        padding: 1rem;
+        border-radius: 8px;
+        color: var(--gray-100);
+        line-height: 1.4;
+        margin-top: 1rem;
+    }
+
+    & footer {
+        visibility: hidden;
+        max-height: 0;
+    }
+
+    &:focus-within footer{
+       visibility: visible;
+       max-height: none; 
+    }
+
+    & button {
+        padding: 1rem 1.5rem;
+        margin-top: 1rem;
+        border-radius: 8px;
+        border: 0;
+        background-color: var(--green-500);
+        color: var(--white);
+        font-weight: bold;
+        cursor: pointer;
+
+        transition: background-color 0.1s;
+        
+    }
+
+    & button:hover {
+        background-color: var(--green-300);
+    }
+}

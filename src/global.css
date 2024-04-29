@@ -1,0 +1,59 @@
+:root {
+    --white: #fff;
+    --gray-050: #F4F5F7;
+    --gray-100: #e1e1e6;
+    --gray-200: #9F9F9F;
+    --gray-300: #c4c4cc;
+    --gray-400: #8d8d99;
+    --gray-500: #898989;
+    --gray-600: #323238;
+    --gray-700: #29292e;
+    --gray-800: #202024;
+    --gray-900: #121214;
+  
+    --green-300: #00B37E;
+    --green-500: #00875f;
+
+    --red-500: #F75A68;
+
+    --primary-color: #23A6F0;
+    --secondary-color-1: #23856D;
+    --secondary-color-2: #3C403D;
+    --background-banner: #FAF3EA;
+    --background-filter: #F9F1E7;
+    --dark-background-color: #252B42;
+    --light-background-color: #FFFFFF;
+    --light-text-color: #FFFFFF;
+    --light-gray-1: #FAFAFA;
+    --text-color: #252B42;
+    --second-text-color: #737373;
+    --success-color: #2DC071;
+    --muted-color: #BDBDBD;
+    --hover-color: #2A7CC7;
+    --hover-color-text: #2A7CC7
+  }
+
+  :focus {
+    outline: transparent; 
+    box-shadow: 0 0 0 2px var(--green-500);
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--gray-900);
+    -webkit-font-smoothing: antialiased;
+}
+
+body, input, textarea, button {
+    font-weight: 400;
+    font-size: 1rem;
+}

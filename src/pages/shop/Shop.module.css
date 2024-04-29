@@ -1,0 +1,83 @@
+.subHeader {
+    height: 316px;
+    background-image: url("../../assets/subHeader1.svg");
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .content {
+        color: var(--gray-900);
+
+        & h1 {
+            font-size: 48px;
+        }
+
+        & a {
+            color: var(--gray-900);
+        }
+
+        & .navLinks {
+            display: flex;
+            align-items: center;
+
+            & .linkSelect {
+                font-weight: 300;
+            }
+        }
+
+        & .navLinks > a {
+            font-weight: 500;
+        }
+    }
+}
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    margin-bottom: 100px;
+    padding: 0 100px;
+    background-color: var(--background-filter);
+
+    & .page {
+        display: flex;
+        align-items: center;
+        gap: 23px;
+        color: var(--gray-900);
+
+        & span {
+            font-size: 20px;
+        }
+        & .borderLeft{
+            height: 37px;
+            border-left: black 1px solid;
+        }
+    }
+
+    & .input{
+        color: var(--gray-900);
+        font-size: 20px;
+        font-weight: 400;
+
+        & .inputPage {
+            width: 55px;
+        }
+
+        & input {
+            height: 55px;
+            margin-left: 17px;
+            margin-right: 29px;
+
+            border: transparent;
+            padding-left: 20px;
+        }
+    }
+}
+.products {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
