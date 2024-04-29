@@ -10,6 +10,7 @@ interface ProductParams {
     id?: string;
     page?: number;
     limit?: number;
+    sortOrder?: string;
 }
 
 interface ProductProps {
@@ -17,7 +18,7 @@ interface ProductProps {
     params?: ProductParams; // Tornando os parâmetros opcionais
 }
 export function Product({ setPagination, params }: ProductProps) {
-    const { id, page, limit } = params || {} ;
+    const { id, page, limit, sortOrder } = params || {} ;
     const [products, setProducts] = useState<IProduct[]>([]);
     const [isLoading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -37,6 +38,7 @@ export function Product({ setPagination, params }: ProductProps) {
         if (id) queryParams.push(`categoryId=${encodeURIComponent(id)}`);
         if (page) queryParams.push(`page=${encodeURIComponent(page)}`);
         if (limit) queryParams.push(`limit=${encodeURIComponent(limit)}`);
+        if (sortOrder) queryParams.push(`order=${encodeURIComponent(sortOrder)}`);
 
         if (queryParams.length > 0) {
             url += `?${queryParams.join('&')}`;
@@ -59,7 +61,7 @@ export function Product({ setPagination, params }: ProductProps) {
                 setLoading(false);
             });
 
-    }, [id, page, limit, setPagination]);
+    }, [id, page, limit, sortOrder,setPagination]);
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;

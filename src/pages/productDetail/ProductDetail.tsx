@@ -2,17 +2,20 @@ import styles from './ProductDetail.module.css'
 import {Icon} from "@iconify/react";
 import {Rating} from "@mui/material";
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import {IProduct} from "../../interfaces/IProduct.ts";
 import {Api} from "../../service/Api.ts";
 import {Product} from "../../components/product/Product.tsx";
 export function ProductDetail() {
     const { id } = useParams();
     const [value, setValue] = useState<number | null>(4);
+    const [limit, setLimit] = useState(4)
+    const [countShow, setCountShow] = useState(1)
     const [product, setProduct] = useState<IProduct | null>(null);
     const [selectedImage, setSelectedImage] = useState('');
     const [isLoading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate =  useNavigate();
 
     useEffect(() => {
         if (id){
@@ -35,6 +38,13 @@ export function ProductDetail() {
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
+    function hadleShowMore(): void {
+        setCountShow(countShow + 1)
+        setLimit(8)
+        if(countShow === 2){
+            navigate(`/shop/products/category/${product?.categoryId}`)
+        }
+    }
 
     return (
         <div>
@@ -132,9 +142,9 @@ export function ProductDetail() {
                     <div className={styles.title}>
                         <span>Related Products</span>
                     </div>
-                    <Product params={{limit:4}}/>
+                    <Product params={{limit:limit}}/>
                     <div className={styles.showMore}>
-                        <a  href="/shop">Show More</a>
+                        <a onClick={hadleShowMore}>Show More</a>
                     </div>
                 </div>
 

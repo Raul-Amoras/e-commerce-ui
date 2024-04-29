@@ -64,7 +64,19 @@
         & .inputPage {
             width: 55px;
         }
+        &  .shortBy {
+            height: 55px;
+            margin-left: 13px;
+            margin-right: 29px;
 
+            border: transparent;
+            padding-left: 15px;
+            padding-right: 10px;
+
+            -webkit-appearance: none; /* Remover para Chrome, Safari */
+            -moz-appearance: none;    /* Remover para Firefox */
+            appearance: none;
+        }
         & input {
             height: 55px;
             margin-left: 17px;

@@ -2,6 +2,7 @@ import styles from './Home.module.css'
 import {Category} from "../../components/category/Category.tsx";
 import {Product} from "../../components/product/Product.tsx";
 export function Home() {
+
     return (
         <>
             <div className={styles.carousel}>
